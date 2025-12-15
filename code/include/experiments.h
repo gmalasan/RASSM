@@ -325,6 +325,7 @@ void data_movement_experiment( std::string mtx_filename, ITYPE feature, ITYPE Ti
         MEM_RESET(C, countC, layers);
 
         RUN_TIMING(spmm_atm_kstream_compiler_vectorized, S_atm, Ti, Tj);
+  #ifdef INTEL_COMPILER
     } else if (run_mode == runtype::INTEL_MKL) {
         PRINT_TYPE("INTEL MKL SPMM");
 
@@ -390,7 +391,7 @@ void data_movement_experiment( std::string mtx_filename, ITYPE feature, ITYPE Ti
         MEM_RESET(C, countC, layers);
 
         RUN_MKL_TIMING;
-
+  #endif
     } else {
         print_error_exit("[Experiment]: Unknown run-mode\n");
     }

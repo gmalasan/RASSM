@@ -5,6 +5,9 @@
 #include <cstddef>
 #include <map>
 
+// Added after finding compilation errors
+#include <string>
+
 using ITYPE = int32_t;
 // using ITYPE = int64_t;
 using TYPE = double;
